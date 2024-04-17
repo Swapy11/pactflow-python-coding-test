@@ -29,8 +29,8 @@ def main():
     snippet1 = 'List<String> things = new ArrayList<>();'
     snippet2 = 'console.log("Hello world");'
 
-    language1 = detect_programming_language(snippet1)
-    language2 = detect_programming_language(snippet2)
+    language1 = detect_language(snippet1)
+    language2 = detect_language(snippet2)
 
     print(f"Snippet 1 is written in {language1}")
     print(f"Snippet 2 is written in {language2}")

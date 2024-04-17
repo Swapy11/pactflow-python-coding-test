@@ -20,4 +20,5 @@ __all__ = [
     "__url__",
     "__license__",
     "__copyright__",
+    "detect_language",
 ]
