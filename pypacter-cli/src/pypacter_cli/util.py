@@ -38,3 +38,28 @@ def make_sync(f: Callable[_P, Coroutine[None, None, _T]]) -> Callable[_P, _T]:
         return asyncio.run(f(*args, **kwargs))
 
     return wrapper
+
+
+def read_input_content_from_file_or_string(input: Union[str, os.PathLike]) -> str:
+    """
+    Read the content from a file or use a string input.
+
+    Args:
+        input (Union[str, os.PathLike]): Either a filename or a string.
+
+    Returns:
+        str: The content read from the file if `input` is a valid filename,
+             otherwise returns `input` itself.
+
+    Raises:
+        FileNotFoundError: If `input` is a filename that does not exist.
+
+    """
+    if os.path.isfile(input):
+        # Input is a filename
+        with open(input, 'r') as file:
+            content = file.read()
+    else:
+        # Input is a string
+        content = input
+    return content
